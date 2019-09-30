@@ -2,8 +2,7 @@
 <html>
 <head>
 	<meta name="csrf-token" content="{{ csrf_token() }}">
-	<title></title>
-	<!-- <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jqueryui-editable/css/jqueryui-editable.css" rel="stylesheet"/> -->	
+	<title></title>	
 </head>
 <body>
 	@foreach($rewards as $key => $s)
@@ -15,12 +14,10 @@
 					<td>{{$s->user}}</td>
 					<td>:</td>
 					<td>
-						<!-- <a href="#" id="industryName" data-type="text" data-pk="{{ $s->id }}" data-title="Edit industry">Rp. {{ number_format($s->details, 0, ".", ".") }}</a> -->
 						<input type="text" name="daily_limit_rewards" value="{{ $s->details}}">
 						
 					</td>
 					<td><input type="submit" value="save"></td>
-					<!-- <td contenteditable="true" onBlur="saveToDatabase(this,'question',$s->id" onClick="showEdit(this);">Rp. {{ number_format($s->details, 0, ".", ".") }}</td> -->
 				</tr>
 			</table>
 		</form>
@@ -92,32 +89,5 @@
 			@endif
 		@endforeach
 	</table>
-	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jqueryui-editable/js/jqueryui-editable.min.js"></script>
-	<script>
-		$(document).ready(function() {
-
-		     $.fn.editable.defaults.mode = 'inline';
-
-		       $.fn.editable.defaults.params = function (params) 
-		       {
-		        params._token = $("#_token").data("token");
-		        return params;
-		       };
-
-		     $('#industryName').editable({
-		                validate: function(value) {
-		                                            if($.trim(value) == '') 
-		                                                return 'Value is required.';
-		                                            },
-		                type: 'text',
-		                url:'/updateIndustry',   
-		                send:'always',
-		                ajaxOptions: {
-		                dataType: 'json'
-		                }
-
-		                } );
-		 } );
-	</script> -->
 </body>
 </html>
